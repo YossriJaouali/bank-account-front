@@ -1,0 +1,13 @@
+mat-card {
+  border: 5px solid #000;
+  display: block;
+  position: relative;
+  padding: 16px;
+  border-radius: 13px;
+}
+
+mat-card-title {
+  display: inline;
+  flex-direction: row;
+}
+

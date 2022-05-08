@@ -1,0 +1,29 @@
+<div>
+  <h1>Hello {{customer?.firstName}} {{customer?.lastName}}</h1><br>
+  <h2>You have {{numberOfAccounts}} accounts</h2>
+</div>
+<div *ngFor="let account of customer?.accounts; let index = index;">
+  <br/>
+  <mat-card>
+    <mat-card-title>
+      <h3>Account {{index + 1}}</h3>
+    </mat-card-title>
+    <mat-card-content>
+      <span>Available balance: {{account.balance}} {{account.currency}}</span><br>
+      <span>Account number: {{account.accountNumber}}</span>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutAlign="space-around">
+        <button (click)="openWithdrawDialog(account.accountNumber)" color="primary" mat-button>Withdraw</button>
+        |
+        <button (click)="openDepositDialog(account.accountNumber)" color="primary" mat-button>Deposit</button>
+        |
+        <button (click)="openOperationsHistoryDialog(account.accountNumber)" color="primary" mat-button>Operations
+          history
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
