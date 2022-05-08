@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{operationType}}</h2>
+<mat-dialog-content [formGroup]="operationForm">
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-form-field>
+      <mat-label>Amount</mat-label>
+      <input formControlName="amount" matInput>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input formControlName="description" matInput>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button (click)="close()" class="mat-button" mat-button>Cancel</button>
+  <button (click)="save()" class="mat-button" color="primary" mat-button>Save</button>
+</mat-dialog-actions>
