@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit, Optional} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -11,8 +11,9 @@ export class OperationDialogComponent implements OnInit {
 
   operationType = '';
   operationForm = new FormGroup({
-    amount: new FormControl(),
-    description: new FormControl()
+    amount: new FormControl('', [Validators.required, Validators.min(1),
+      Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')]),
+    description: new FormControl('')
   });
 
   constructor(public dialogRef: MatDialogRef<OperationDialogComponent>,

@@ -4,7 +4,7 @@ import {BankAccountComponent} from './bank-account.component';
 import {CustomerService} from '../../core/services/customer.service';
 import {AccountService} from '../../core/services/account.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
-import {of} from 'rxjs';
+import {Observable, of, throwError} from 'rxjs';
 import {Customer} from '../../core/model/customer';
 import {Account} from '../../core/model/account';
 import {OperationDialogComponent} from '../operation-dialog/operation-dialog.component';
@@ -51,7 +51,8 @@ describe('BankAccountComponent', () => {
     spyMatDialog = jasmine.createSpyObj('MatDialog', ['open']);
     spyMatDialog.open = jasmine.createSpy().and.returnValue({
       afterClosed: () => of({
-        hasAccepted: true
+        amount: 23,
+        description: 'description'
       })
     });
   });
@@ -79,6 +80,7 @@ describe('BankAccountComponent', () => {
 
   it('should open the withdraw dialog', () => {
     component.openWithdrawDialog(selectedAccountNumber);
+
     expect(spyMatDialog.open).toHaveBeenCalledWith(OperationDialogComponent, {
         disableClose: true,
         hasBackdrop: true,
@@ -97,6 +99,7 @@ describe('BankAccountComponent', () => {
 
   it('should open the deposit dialog', () => {
     component.openDepositDialog(selectedAccountNumber);
+
     expect(spyMatDialog.open).toHaveBeenCalledWith( OperationDialogComponent, {
       disableClose: true,
       hasBackdrop: true,
@@ -115,6 +118,7 @@ describe('BankAccountComponent', () => {
 
   it('should open the deposit dialog', () => {
     component.openOperationsHistoryDialog(selectedAccountNumber);
+
     expect(spyMatDialog.open).toHaveBeenCalledWith( OperationsHistoryDialogComponent, {
       disableClose: true,
       hasBackdrop: true,
@@ -130,4 +134,5 @@ describe('BankAccountComponent', () => {
       panelClass: 'middle'
     });
   });
+
 });

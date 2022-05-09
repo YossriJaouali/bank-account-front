@@ -20,13 +20,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {HttpClientModule} from '@angular/common/http';
+import { AlertDialogComponent } from './shared/alert-dialog/alert-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BankAccountComponent,
     OperationDialogComponent,
-    OperationsHistoryDialogComponent
+    OperationsHistoryDialogComponent,
+    AlertDialogComponent
   ],
   imports: [
     BrowserModule,

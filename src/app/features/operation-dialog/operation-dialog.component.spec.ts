@@ -4,6 +4,8 @@ import {OperationDialogComponent} from './operation-dialog.component';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {FormControl, FormGroup} from '@angular/forms';
 import {OperationType} from '../../core/model/operation-type';
+import {throwError} from 'rxjs';
+import {HttpErrorResponse} from '@angular/common/http';
 
 describe('OperationDialogComponent', () => {
   let component: OperationDialogComponent;
@@ -45,4 +47,5 @@ describe('OperationDialogComponent', () => {
     component.close();
     expect(mockDialogRef.close).toHaveBeenCalled();
   });
+
 });
