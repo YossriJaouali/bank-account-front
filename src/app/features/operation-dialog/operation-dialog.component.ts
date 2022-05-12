@@ -12,8 +12,8 @@ export class OperationDialogComponent implements OnInit {
   operationType = '';
   operationForm = new FormGroup({
     amount: new FormControl('', [Validators.required, Validators.min(1),
-      Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')]),
-    description: new FormControl('')
+      Validators.max(999999999999999999), Validators.pattern('^-?[0-9]\\d*(\\.\\d{1,2})?$')]),
+    description: new FormControl('', Validators.maxLength(20))
   });
 
   constructor(public dialogRef: MatDialogRef<OperationDialogComponent>,
