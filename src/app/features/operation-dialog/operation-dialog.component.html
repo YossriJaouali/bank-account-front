@@ -13,8 +13,11 @@
       <div *ngIf="operationForm.controls['amount']?.errors?.min">
         The amount should be greater than 0
       </div>
+      <div *ngIf="operationForm.controls['amount']?.errors?.max">
+        The amount should not be greater than 999 999 999 999 999 999
+      </div>
       <div *ngIf="operationForm.controls['amount']?.errors?.pattern">
-        The amount is a number
+        The amount is a number (ex: 99.98)
       </div>
     </div>
   </div>
@@ -23,8 +26,16 @@
       <mat-label>Description</mat-label>
       <input formControlName="description" matInput/>
     </mat-form-field>
+    <div *ngIf="operationForm.controls['description']?.invalid &&
+      (operationForm.controls['description']?.dirty || operationForm.controls['description']?.touched)" class="alert">
+      <div *ngIf="operationForm.controls['description']?.errors?.maxlength">
+        The description should not exceed 20 characters
+      </div>
+    </div>
   </div>
 </mat-dialog-content>
+<br/>
+
 <mat-dialog-actions>
   <button (click)="close()" class="mat-button" mat-button>Cancel</button>
   <button (click)="save()" [disabled]="operationForm.invalid" color="primary" mat-button mat-raised-button>Save</button>

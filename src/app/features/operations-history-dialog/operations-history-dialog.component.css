@@ -1,1 +1,18 @@
-
+table {
+    width: 100%;
+}
+.mat-column-type {
+    width: 10% !important;
+}
+.mat-column-amount {
+    width: 40% !important;
+    padding-left: 20px;
+}
+.mat-column-creation-date {
+    width: 10% !important;
+    padding-left: 20px;
+}
+.mat-column-description {
+    width: 40% !important;
+    padding-left: 20px;
+}

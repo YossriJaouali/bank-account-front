@@ -2,19 +2,19 @@
 <mat-dialog-content>
   <div class="mat-elevation-z8">
     <table [dataSource]="dataSource" mat-table>
-      <ng-container matColumnDef="type">
+      <ng-container matColumnDef="type" class="mat-column-type">
         <th *matHeaderCellDef mat-header-cell>Type</th>
         <td *matCellDef="let element" mat-cell>{{element.operationType}}</td>
       </ng-container>
-      <ng-container matColumnDef="amount">
+      <ng-container matColumnDef="amount" class="mat-column-amount">
         <th *matHeaderCellDef mat-header-cell>Amount</th>
         <td *matCellDef="let element" mat-cell>{{element.amount}}</td>
       </ng-container>
-      <ng-container matColumnDef="creationDate">
+      <ng-container matColumnDef="creationDate" class="mat-column-creation-date">
         <th *matHeaderCellDef mat-header-cell>Date</th>
         <td *matCellDef="let element" mat-cell>{{element.creationDate | date:'dd/MM/YYYY'}}</td>
       </ng-container>
-      <ng-container matColumnDef="description">
+      <ng-container matColumnDef="description"  class="mat-column-description">
         <th *matHeaderCellDef mat-header-cell>Description</th>
         <td *matCellDef="let element" mat-cell>{{element.description}}</td>
       </ng-container>

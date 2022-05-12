@@ -89,7 +89,7 @@ export class BankAccountComponent implements OnInit, OnDestroy {
             disableClose: true,
             hasBackdrop: true,
             backdropClass: '',
-            width: '500px',
+            width: '600px',
             position: {
                 top: '50vh',
                 left: '50vw'
